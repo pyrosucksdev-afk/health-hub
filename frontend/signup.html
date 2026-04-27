@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stitch Design</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900&display=swap');
+
+      body {
+        margin: 0;
+        font-family: 'Public Sans', 'Noto Sans', sans-serif;
+        background-color: white;
+        color: #111518;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f0f3f4;
+        padding: 12px 40px;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logo-section svg {
+        width: 32px;
+        height: 32px;
+        fill: currentColor;
+      }
+
+      .logo-text {
+        font-weight: 700;
+        font-size: 1.125rem; /* 18px */
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        font-weight: 500;
+        font-size: 0.875rem; /* 14px */
+      }
+
+      nav a {
+        color: #111518;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .login-button {
+        min-width: 84px;
+        max-width: 480px;
+        cursor: pointer;
+        background-color: #f0f3f4;
+        color: #111518;
+        font-weight: 700;
+        font-size: 0.875rem;
+        padding: 0 16px;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+      }
+
+      main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        padding: 20px 160px;
+      }
+
+      .content {
+        width: 100%;
+        max-width: 512px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+      }
+
+      h2.title {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 12px;
+        color: #111518;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        font-size: 1rem;
+        color: #111518;
+      }
+
+      label p {
+        margin-bottom: 8px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      input[type="password"] {
+        height: 56px;
+        padding: 15px;
+        border: 1px solid #dce1e5;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: #111518;
+        background-color: white;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: #637988;
+      }
+
+      input:focus {
+        border-color: #dce1e5;
+        box-shadow: none;
+      }
+
+      button.signup-button {
+        cursor: pointer;
+        background-color: #1785cf;
+        color: white;
+        font-weight: 700;
+        font-size: 0.875rem;
+        padding: 0 16px;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+        width: 100%;
+      }
+
+      .login-link {
+        color: #637988;
+        font-size: 0.875rem;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 12px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo-section">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+            />
+          </svg>
+          <h2 class="logo-text">HealthHub</h2>
+        </div>
+        <nav>
+          <a href="#">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <button class="login-button" onclick="window.location.href='login.html'">Log In</button>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          <h2 class="title">Sign up for HealthHub</h2>
+          <form id="signupForm">
+            <label>
+              <p>Full Name</p>
+              <input id="name" type="text" placeholder="Enter your full name" />
+            </label>
+            <label>
+              <p>Email</p>
+              <input id="email" type="email" placeholder="Enter your email" />
+            </label>
+            <label>
+              <p>Phone Number</p>
+              <input id="phone"  type="tel" placeholder="Enter your phone number" />
+            </label>
+            <label>
+              <p>Date of Birth</p>
+              <input id="dob" type="text" placeholder="MM/DD/YYYY" />
+            </label>
+            <label>
+              <p>Password</p>
+              <input id="password" type="password" placeholder="Enter your password" />
+            </label>
+            <label>
+              <p>Confirm Password</p>
+              <input id="confirmPassword" type="password" placeholder="Confirm your password" />
+            </label>
+            <button type="submit" class="signup-button">Sign Up</button>
+          </form>
+          <p class="login-link">Already have an account? Log in</p>
+        </div>
+      </main>
+    </div>
+<script>
+  const form = document.getElementById("signupForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // stop refresh
+
+    // grab & clean values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const dob = document.getElementById("dob").value; 
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (!name || !email || !phone || !dob || !password) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:3000/api/auth/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, phone, dob, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+
+        window.location.href = "appointment.html"; // redirect after success
+      } else {
+        alert("❌ " + (data.msg || "Error registering user"));
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("⚠️ Something went wrong connecting to server!");
+    }
+  });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900">
+    <title>MediCare - Our Departments</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1785cf;
+            --text-color: #111518;
+            --light-text: #637988;
+            --border-color: #dce1e5;
+            --bg-light: #f0f3f4;
+            --white: #ffffff;
+            --font-family: "Public Sans", "Noto Sans", sans-serif;
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--white);
+            color: var(--text-color);
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Layout */
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 100vh;
+        }
+        
+        .layout-content-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 960px;
+            flex: 1;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--bg-light);
+            padding: 12px 40px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-color);
+        }
+        
+        .logo-svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .header-nav {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+        
+        .btn {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 0.015em;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            min-width: 84px;
+            max-width: 480px;
+            padding: 0 16px;
+        }
+        
+        .user-avatar {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_teERmn_3YHo0nKBKxfCAbNsyNeFYm7eDIpv86roc8V3mEsiUyqXpzOQfuVnrqUjDhHIxhi3ZVZf-8BsUj9dDwRzGHZqBXStUFvxjC6IIaBpdes6LonUAbRcVEytlV4i5LXEfEGcGY8eYAZeMUaD8mG_i9HLCIl9OMLjngYD9HcX-fMavUWg2SZRl7OdXELEatgeJ4QaYGBf-sQJOOoP5rpbEmPX-RiwOIE_E7CsmXow1zKFhNTmPRUhYqNN92Gpc1_gb0OJLeTr9");
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 20px 160px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        /* Intro Section */
+        .intro-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px;
+        }
+        
+        .intro-text {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 288px;
+        }
+        
+        .intro-title {
+            color: var(--text-color);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .intro-description {
+            color: var(--light-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* Departments Grid */
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+            gap: 12px;
+            padding: 16px;
+        }
+        
+        .department-card {
+            display: flex;
+            flex: 1;
+            gap: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--white);
+            padding: 16px;
+            align-items: center;
+        }
+        
+        .department-icon {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            aspect-ratio: 1/1;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+        
+        .department-name {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Button Section */
+        .button-section {
+            display: flex;
+            padding: 12px 16px;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .footer-container {
+            display: flex;
+            max-width: 960px;
+            flex: 1;
+            flex-direction: column;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+        
+        .footer-link {
+            color: var(--light-text);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            min-width: 160px;
+            text-decoration: none;
+        }
+        
+        .footer-copyright {
+            color: var(--light-text);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 20px 80px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                padding: 20px 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .intro-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .intro-title {
+                font-size: 24px;
+            }
+            
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .footer-link {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-svg">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">MediCare</h2>
+            </div>
+            <div class="header-nav">
+                <div class="nav-links">
+                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">Departments</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </div>
+                <button class="btn btn-primary">
+                    <span>Book Appointment</span>
+                </button>
+                <div class="user-avatar"></div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="layout-content-container">
+                <div class="intro-section">
+                    <div class="intro-text">
+                        <p class="intro-title">Our Departments</p>
+                        <p class="intro-description">
+                            Explore the diverse range of specialized medical departments at our hospital, each dedicated to providing exceptional care and treatment.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="departments-grid">
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0vLhsheBL93K0cGOkYTd9DNKyAW3n-yPIBpzTImwcBzvLLGaIQQ-DMghdUL1s9W9Q-0K3txxNfO-Fh6xULY9392i8WV98pSOkGpLkZOwG1sH-jObZ7ir-xWojyTdOcyCK0H_or-T-7P8Hhh7Sxt4ZShaP5ElqX43HktptC6ELfA2oq2-D-q2Bd-Zt-Snh2K4_lOazJvol_Puy5W54KYyNJZlxLSklh4vmwPgpx91V22ObYChr14voKlTPL5z3MtwCB0qb3JqPPPLX');"></div>
+                        <h2 class="department-name">Cardiology</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWemay01hUC0vj-tmEHfYbO1BtV0NXy7CgGX0u1j8q-8_wjvqX0cgofyLRbdvJELhYr2IK57qQ9IWWfkmDWCWKWVD8Xur_nO6udh0r5fOoNOZXNYqe2gIUbj4msHqD_VBs31OFjkfuSLe4XjWUoATsL_3N5d3UhE4JaWXh3wIQCg69iXlw7H1lY0f86TPbdA-khZ0kZlnjME3ejGqth8nJQngVCrbJU0uWOa_mvgtbnj0XO1kQm8NE7rOA6BKx55DeMl0w5yrPyp2u');"></div>
+                        <h2 class="department-name">Neurology</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbDpU_AycuD3CyQBDYY7REMyj-hcyaYLZyX4C0YSP_AvHWUIIbLezAOg8RdAh6xmW_LXhpheooKQOXPUf-MhaER6-h4H-MYzz-g-QWFltptVzlxHYFbGlBA8oJ34qazls8OkKQkJnEZNIr0vIRq1SNFvChE3rWJLOFMbys_1Nreyaj9WrU1pXaeSjB87i98xRkpJD_2HtBcNe7A7CNKx3qyT3nPbB4n5d3OTCM_4lkIUH6A42uXNLkxtcpCWJpas5mq5BM3JdavUmm');"></div>
+                        <h2 class="department-name">Oncology</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARX1lZgSGwFAhze-cXtMMnm52Zdhxs47wrHVAZELYtEfvuNd5VkoJH7E4AbwryJjn3bk1JNcjwb2bgEiQLOc2TgTN7cPZ5hUOZEBwchRR8EKv5XtCVAvIWLfG-9mxhmEkIHrCyONw0qTVW6yB0nRijljeSiZS85jB6jTw04xRSuS2RrEr6lG6Cj4jMGVAUyZRVchT9oGSBgA2Bsy3YLACkHsUmwhao2vhFbtqFaRnm_f1a0nD6Eh1hZU8APO1pTW2qaWE27ahwavqi');"></div>
+                        <h2 class="department-name">Pediatrics</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2MVJFuJiAWlai0tC7G-Bg2jpMRl4JaXX-jx_VHaNbyMcWzioteKHWe7-PseXcQDMZzOKThyaqIGSTZJpZ6ArrGxiZuKB0jmTnlGPo74RHLRbsD1Tl86G9R8X7THoee9o0Fsx8mXbBvkIUTuuxH9NopiPZNtq7EEy7YeiwAvUHNLoywl8OsrBMQEJgW6L-fkAMG0I3nDRNGlPYO5LsLYNYuY4JMo055Z0PQVKz0cDFOoplIlgqBfttENfcp3dptCCw0QNZQupgNOrU');"></div>
+                        <h2 class="department-name">Orthopedics</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2VIptFEGodKrZ-R8kahciFhP1fdjBrW_hqeJQGAJU2XkM_KVJ0qxV7At20mt7ml4ePLvtH04n-pDoUfAwg-rqTIpQpYY4yC6G7RnGsNXSMLp3o8UXCDFR22FU0AvVathCoiK4wpvrFRES4U7vJdXNsyNCWgxBTuIWopKTyGsoVS4zofoJYff5HRJOSgMjmohwqXxjPgNIFJ2G4-OAx7mfKt9M_ajjqlg_WNb8GGWfMT-8lR3Fq0FcSvTXFVg_y-FaHeN0WkFu_z3L');"></div>
+                        <h2 class="department-name">Gastroenterology</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2K7Op7Rcdfq-VF_lHKKLj6fGutxR4JGpjHq6DhrtfC3Dc2Gfuus8OhoZzE2R83f063FR9It6OTtEySPdPAe4YgFWh8Qkff7TFLsYevwRQ2n_4vjXPLFrLgTgIhYpLSI8oIhOw-vttJ0Asef92zNv7wFBLrypcwGNyWC5pfRVUCTyAUgPzOhhp93wfCRBWq0XiEJ_3xZnf87-EOJfB1RvBxF1QJICL_4vCkR4ydvkhWTuXZLzVtyNPk282X4XgT5oj4tNDpL_LhTPZ');"></div>
+                        <h2 class="department-name">Dermatology</h2>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAebngz1wVZiEAJKczc-HreUjVmrAUUcXsNdaTHAI8PcSfEobSKtW_av9qXGbEHS-zynOpdvZfkQz5hZr9vn6CKlG12R9J7zQfQRMjobE-A1BCKJKs5Sqzry7yOCmhqbNLlchNdflqleZ5dhTOJWkOee0Ceh3oxCbyGkNPp_gTMQk7ljq-fReubCZMi8nP-caDPklxeU_KICLj19mdzyB5z_2-sSdbKoqaFcPEDE5E6BSwrd-cvJFBC1vDMbHHQ91cLX7t8cFgkJlYj');"></div>
+                        <h2 class="department-name">Urology</h2>
+                    </div>
+                </div>
+                
+                <div class="button-section">
+                    <button class="btn btn-primary">
+                        <span>Book Appointment</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a class="footer-link" href="#">Privacy Policy</a>
+                        <a class="footer-link" href="#">Terms of Service</a>
+                        <a class="footer-link" href="#">Contact Us</a>
+                    </div>
+                    <p class="footer-copyright">@2024 MediCare. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Public Sans", "Noto Sans", sans-serif;
+        background-color: white;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f0f3f4;
+        padding: 12px 40px;
+      }
+      header .logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: #111518;
+      }
+      header nav a {
+        margin-right: 20px;
+        text-decoration: none;
+        color: #111518;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .button {
+        min-width: 84px;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .button-primary {
+        background-color: #1785cf;
+        color: white;
+      }
+      .button-secondary {
+        background-color: #f0f3f4;
+        color: #111518;
+      }
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
+          url("https://lh3.googleusercontent.com/aida-public/AB6AXuCdjB9cJbNkP6Si2Pi4xpmFjXpktSg3pSoFi9ncBXOIzcW3P275l9SCcFKPLSXo3uQs_oNuVejMEPGpvG0bLJS7O8UKFDeGCOqPTiTNtbdAUOLpUvCZ-JnkSdJk6KMYvjlLgTUsH6ggc1cE5jfhfhxmXKf8qDg4GYX9uBz9T_T72Sdoh79QIQEEXpkO1q2SiK5G5xvlWlOGsc3rgGcvApKfVFSNKpK6rVm_e5xalNEenGjtDSGfwaXd-SWnSQfZIJCjcFPU3jAFbp0K")
+            center/cover no-repeat;
+        min-height: 480px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0 40px 40px;
+        color: white;
+        border-radius: 8px;
+      }
+      .hero h1 {
+        font-size: 36px;
+        font-weight: 900;
+        margin: 0;
+      }
+      .hero p {
+        font-size: 16px;
+        max-width: 600px;
+      }
+      .container {
+        max-width: 960px;
+        margin: auto;
+        padding: 40px;
+      }
+      h2.section-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 40px;
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .card {
+        border: 1px solid #dce1e5;
+        border-radius: 8px;
+        padding: 16px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .card svg {
+        width: 24px;
+        height: 24px;
+        color: #111518;
+      }
+      .card h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+        color: #111518;
+      }
+      .card p {
+        font-size: 14px;
+        color: #637988;
+        margin: 0;
+      }
+      .contact-section {
+        text-align: center;
+        margin-top: 60px;
+        padding: 40px 0;
+      }
+      .contact-section h1 {
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .contact-section p {
+        font-size: 16px;
+        color: #111518;
+      }
+      footer {
+        text-align: center;
+        color: #637988;
+        padding: 40px 20px;
+      }
+      footer a {
+        color: #637988;
+        margin: 0 20px;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path
+              d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+            />
+          </svg>
+        </div>
+        <h2>HealthHub</h2>
+      </div>
+      <div>
+        <nav style="display: inline-block;">
+          <a href="page.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="doctor.html">Doctors</a>
+          <a href="department.html">Departments</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="button button-primary" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button-secondary" onclick="window.location.href='appointment.html'">Book Appointment</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="hero">
+        <h1>Your Health, Our Priority</h1>
+        <p>
+          Welcome to HealthHub, where we provide exceptional care and support for your well-being. Our dedicated team of professionals is committed to delivering
+          personalized healthcare solutions tailored to your needs.
+        </p>
+        <a href="services.html"><button class="button button-primary" style="margin-top: 20px;">Explore Services</button></a>
+      </div>
+
+      <h2 class="section-title">Our Services</h2>
+      <p>
+        At HealthHub, we offer a wide range of services to meet your healthcare needs. From routine check-ups to specialized treatments, our experienced team is here to
+        provide the care you deserve.
+      </p>
+
+      <div class="services">
+        <div class="card">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+            <path
+              d="M212,152a12,12,0,1,1-12-12A12,12,0,0,1,212,152Zm-4.55,39.29A48.08,48.08,0,0,1,160,232H136a48.05,48.05,0,0,1-48-48V143.49A64,64,0,0,1,32,80V40A16,16,0,0,1,48,24H64a8,8,0,0,1,0,16H48V80a48,48,0,0,0,48.64,48c26.11-.34,47.36-22.25,47.36-48.83V40H128a8,8,0,0,1,0-16h16a16,16,0,0,1,16,16V79.17c0,32.84-24.53,60.29-56,64.31V184a32,32,0,0,0,32,32h24a32.06,32.06,0,0,0,31.22-25,40,40,0,1,1,16.23.27ZM224,152a24,24,0,1,0-24,24A24,24,0,0,0,224,152Z"
+            />
+          </svg>
+          <h3>Appointments</h3>
+          <p>Schedule your next visit with ease.</p>
+        </div>
+        <div class="card">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+            <path
+              d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"
+            />
+          </svg>
+          <h3>Past Records</h3>
+          <p>Access your medical history securely.</p>
+        </div>
+        <!-- Add more cards as needed -->
+      </div>
+
+      <div class="contact-section">
+        <h1>Get in Touch</h1>
+        <p>Have questions or need assistance? Contact us today and our friendly team will be happy to help.</p>
+        <button class="button button-primary" style="margin-top: 20px;">Contact Us</button>
+      </div>
+    </div>
+
+    <footer>
+      <div>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <p>@2024 HealthHub. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

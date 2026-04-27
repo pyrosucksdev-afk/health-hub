@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900">
+    <title>HealthHub - Contact Us</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1785cf;
+            --text-color: #111518;
+            --light-text: #637988;
+            --border-color: #dce1e5;
+            --bg-light: #f0f3f4;
+            --white: #ffffff;
+            --font-family: "Public Sans", "Noto Sans", sans-serif;
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--white);
+            color: var(--text-color);
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Layout */
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 100vh;
+        }
+        
+        .layout-content-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 960px;
+            flex: 1;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--bg-light);
+            padding: 12px 40px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-color);
+        }
+        
+        .logo-svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .header-nav {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 0.015em;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            min-width: 84px;
+            max-width: 480px;
+            padding: 0 16px;
+        }
+        
+        .btn-secondary {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            min-width: 84px;
+            max-width: 480px;
+            padding: 0 16px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 20px 160px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        .hero-banner {
+            display: flex;
+            min-height: 480px;
+            flex-direction: column;
+            gap: 24px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), 
+                              url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkxMAeXYbNl-HmWX5g9w6Fpxbk563qZMfdY585pBO4np4naKeSvAIQNFuW303Y6qR6nSgiBauQsGNvX8Jq41uRBgODWFCBCZxSiSJd2-MpFdGYMm1ecXMpGW-EksMvzNIZFOFTIQafJSuHr8EDWz2Eo20vdKoUihVNlRjJz7484Xpv9MuYbKvZcmC2XBzg95f0uvsp3KGCe1RWgE1DSSlG5OHccl97uwaqZ4rGKsauk7IvnAzHxzM8Kh3cS_vM0J-MWHec0xcOqyWv");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 0 16px;
+        }
+        
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            color: var(--white);
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -0.033em;
+            margin-bottom: 8px;
+        }
+        
+        .hero-subtitle {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .hero-btn {
+            height: 40px;
+            padding: 0 16px;
+        }
+        
+        /* Contact Sections */
+        .contact-section {
+            margin-top: 20px;
+        }
+        
+        .section-title {
+            color: var(--text-color);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            padding: 20px 16px 12px;
+        }
+        
+        .section-description {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: 4px 16px 12px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: var(--white);
+            padding: 8px 16px;
+            min-height: 72px;
+        }
+        
+        .contact-icon {
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background-color: var(--bg-light);
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+        }
+        
+        .icon-svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-label {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        
+        .contact-detail {
+            color: var(--light-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .footer-container {
+            display: flex;
+            max-width: 960px;
+            flex: 1;
+            flex-direction: column;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+        
+        .footer-link {
+            color: var(--light-text);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            min-width: 160px;
+            text-decoration: none;
+        }
+        
+        .footer-copyright {
+            color: var(--light-text);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 480px) {
+            .hero-banner {
+                gap: 32px;
+                padding: 16px;
+            }
+            
+            .hero-title {
+                font-size: 45px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .hero-btn {
+                height: 48px;
+                padding: 0 20px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 20px 80px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                padding: 20px 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-banner {
+                min-height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .footer-link {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-svg">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">HealthHub</h2>
+            </div>
+            <div class="header-nav">
+                <div class="nav-links">
+                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="services.html">Services</a>
+                    <a class="nav-link" href="department.html">Departments</a>
+                    <a class="nav-link" href="doctor.html">Doctors</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </div>
+                <div class="header-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='appointment.html'">
+                        <span>Book Appointment</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='login.html'">
+                        <span>Login</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="layout-content-container">
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Contact Us</h1>
+                        <h2 class="hero-subtitle">
+                            We're here to help. Reach out to us for any inquiries or assistance.
+                        </h2>
+                    </div>
+                    <button class="btn btn-primary hero-btn">
+                        <span>Get in Touch</span>
+                    </button>
+                </div>
+                
+                <div class="contact-section">
+                    <h2 class="section-title">General Inquiries</h2>
+                    <p class="section-description">
+                        For general questions about our services, departments, or doctors, please contact our main reception desk.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Address</p>
+                            <p class="contact-detail">123 Health Street, Anytown, USA 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Phone</p>
+                            <p class="contact-detail">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Email</p>
+                            <p class="contact-detail">info@healthhub.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h2 class="section-title">Appointment Scheduling</h2>
+                    <p class="section-description">
+                        To schedule, reschedule, or cancel an appointment, please contact our appointment scheduling department.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Phone</p>
+                            <p class="contact-detail">+1 (555) 987-6543</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Email</p>
+                            <p class="contact-detail">appointments@healthhub.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h2 class="section-title">Emergency Services</h2>
+                    <p class="section-description">In case of a medical emergency, please call emergency services immediately.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Emergency Number</p>
+                            <p class="contact-detail">911</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h2 class="section-title">Patient Support</h2>
+                    <p class="section-description">
+                        For assistance with billing, insurance, or other patient-related matters, please contact our patient support team.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Phone</p>
+                            <p class="contact-detail">+1 (555) 246-8013</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-label">Email</p>
+                            <p class="contact-detail">support@healthhub.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a class="footer-link" href="#">About Us</a>
+                        <a class="footer-link" href="#">Careers</a>
+                        <a class="footer-link" href="#">Privacy Policy</a>
+                        <a class="footer-link" href="#">Terms of Service</a>
+                    </div>
+                    <p class="footer-copyright">@2024 HealthHub. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-input, .btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Book Appointment</h2>
+    <div class="form-group">
+      <label>Department</label>
+      <select id="department" class="form-input">
+        <option value="">Select Department</option>
+        <option value="cardiology">Cardiology</option>
+        <option value="dermatology">Dermatology</option>
+        <option value="neurology">Neurology</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Doctor</label>
+      <select id="doctorId" class="form-input">
+        <option value="">Select Doctor</option>
+        <option value="68a6041eb391912482394805">Dr. Smith</option>
+        <option value="68a60bf4de8e3bbbe545de45">Dr. Meera Sharma</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Date</label>
+      <input id="date" type="date" class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label>Time Slot</label>
+      <input id="timeSlot" type="time" class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label>Reason for Visit</label>
+      <input id="reason" type="text" class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <button id="bookBtn" class="btn">Book Appointment</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("bookBtn").addEventListener("click", async function(e) {
+      e.preventDefault();
+
+      const doctorId = document.getElementById("doctorId").value;
+      const date = document.getElementById("date").value;
+      const timeSlot = document.getElementById("timeSlot").value;
+      const reason = document.getElementById("reason").value;
+
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("⚠️ You must be logged in to book an appointment.");
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:3000/api/auth/appointment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+          },
+          body: JSON.stringify({ doctorId, date, timeSlot, reason })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+              localStorage.setItem("appointmentDetails", JSON.stringify(data.appointment));
+
+          window.location.href="appointment_success.html"
+        } else {
+          alert("❌ Error: " + (data.msg || "Something went wrong"));
+        }
+      } catch (err) {
+        console.error(err);
+        alert("❌ Server error, check console.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Confirmed - HealthHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    h2 {
+      color: #1785cf;
+      margin-bottom: 16px;
+    }
+    .details {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .details p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #1785cf;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #126aa5;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🎉 Appointment Confirmed!</h2>
+    <p>Your booking has been successfully scheduled.</p>
+
+    <div class="details">
+      <p><strong>Service:</strong> <span id="service"></span></p>
+      <p><strong>Provider:</strong> <span id="provider"></span></p>
+      <p><strong>Date:</strong> <span id="date"></span></p>
+      <p><strong>Time:</strong> <span id="time"></span></p>
+      <p><strong>Location:</strong> <span id="location"></span></p>
+    </div>
+
+    <button class="btn" onclick="window.location.href='index.html'">Go to Home</button>
+  </div>
+
+</body>
+</html>

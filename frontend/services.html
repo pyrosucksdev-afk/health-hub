@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900">
+    <title>HealthFirst Medical Services</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <style>
+      /* CSS Variables */
+      :root {
+        --primary-color: #1785cf;
+        --text-color: #111518;
+        --light-text: #637988;
+        --border-color: #dce1e5;
+        --bg-light: #f0f3f4;
+        --white: #ffffff;
+        --font-family: "Public Sans", "Noto Sans", sans-serif;
+      }
+      
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: var(--font-family);
+        background-color: var(--white);
+        color: var(--text-color);
+        min-height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      
+      /* Layout */
+      .layout-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex-grow: 1;
+      }
+      
+      .layout-content-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 960px;
+        flex: 1;
+      }
+      
+      /* Header */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        border-bottom: 1px solid var(--bg-light);
+        padding: 12px 40px;
+      }
+      
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--text-color);
+      }
+      
+      .logo-svg {
+        width: 16px;
+        height: 16px;
+      }
+      
+      .logo-text {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      
+      .header-nav {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        gap: 32px;
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+      }
+      
+      .nav-link {
+        color: var(--text-color);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-decoration: none;
+      }
+      
+      .header-buttons {
+        display: flex;
+        gap: 8px;
+      }
+      
+      .btn {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.015em;
+        border: none;
+      }
+      
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: var(--white);
+        min-width: 84px;
+        max-width: 480px;
+        padding: 0 16px;
+      }
+      
+      .btn-icon {
+        background-color: var(--bg-light);
+        color: var(--text-color);
+        min-width: 0;
+        max-width: 480px;
+        padding: 0 10px;
+        gap: 8px;
+      }
+      
+      .user-avatar {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBa2DqTJXbSNVhlm8-IvVMEBZ_yDVDrfbkkQQq_qma78eQj98YYPX3EiN4sKQ5ic70I2RO_HI69QHLzvcbphMpS5kxj4Bbt3hhy9pkyXkkLQ_o3XoCAbZY7eB6UrXv30Lcocv-sumnQ-S5VIEUPMLYxmEGI8niDRjy-YqSK0A-VtMmse2WHY8D8HXacIznr76Zxk38iJC3dVZa0-EJ21vwloj0Iku80zwAwmnd9d6q7cGS9D6ZLiHIOiCfBNzm7XZK-w2vKiM4UXURe");
+      }
+      
+      /* Hero Section */
+      .hero-container {
+        padding: 20px 160px;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
+      
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        max-width: 960px;
+        flex: 1;
+      }
+      
+      .hero-banner {
+        display: flex;
+        min-height: 480px;
+        flex-direction: column;
+        gap: 24px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), 
+                          url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIZDLyKgiDU7UlR0RDtI1dp2RarL-muXvpYp_z2vqnXrsBC7yKJ67wjCJR80t67YMGDeNQ2bmD1dSpvVJjjpbAji3xHTE6BK9ytDbAVRNXUPi85kjh_Mg2P_p4ykYZmBeNjDaWkyNLALzpCzc_spfpqY_ug_g67sbAI9-3XRzxfvpZlnKawB8OpxSNsZQPDUI9qZwYzXf8CNU44Cmsea2MufIomSyqx9T0vV1LVLhQ_dfhst8w8slvloXqd3FwGHiOfaV--xUMy-xS");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        border-radius: 8px;
+      }
+      
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+      
+      .hero-title {
+        color: var(--white);
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.033em;
+      }
+      
+      .hero-subtitle {
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+      
+      .hero-btn {
+        height: 40px;
+        padding: 0 16px;
+      }
+      
+      /* Services Section */
+      .section-title {
+        color: var(--text-color);
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+        padding: 20px 16px 12px;
+      }
+      
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+        gap: 12px;
+        padding: 16px;
+      }
+      
+      .service-card {
+        display: flex;
+        flex: 1;
+        gap: 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        background-color: var(--white);
+        padding: 16px;
+        align-items: center;
+      }
+      
+      .service-icon {
+        color: var(--text-color);
+        width: 24px;
+        height: 24px;
+      }
+      
+      .service-name {
+        color: var(--text-color);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      
+      /* CTA Section */
+      .cta-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 24px;
+        padding: 40px 16px;
+      }
+      
+      .cta-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      
+      .cta-title {
+        color: var(--text-color);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+      }
+      
+      .cta-text {
+        color: var(--text-color);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+      
+      .cta-button-container {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
+      
+      .cta-button {
+        height: 40px;
+        padding: 0 16px;
+        flex-grow: 1;
+        max-width: 200px;
+      }
+      
+      /* Footer */
+      footer {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .footer-container {
+        display: flex;
+        max-width: 960px;
+        flex: 1;
+        flex-direction: column;
+      }
+      
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+      }
+      
+      .footer-link {
+        color: var(--light-text);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        min-width: 160px;
+        text-decoration: none;
+      }
+      
+      .footer-copyright {
+        color: var(--light-text);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+      
+      /* Responsive Design */
+      @media (min-width: 480px) {
+        .hero-banner {
+          gap: 32px;
+          padding: 16px;
+        }
+        
+        .hero-title {
+          font-size: 45px;
+        }
+        
+        .hero-subtitle {
+          font-size: 16px;
+        }
+        
+        .hero-btn {
+          height: 48px;
+          padding: 0 20px;
+          font-size: 16px;
+        }
+        
+        .cta-section {
+          gap: 32px;
+          padding: 80px 40px;
+        }
+        
+        .cta-button {
+          height: 48px;
+          padding: 0 20px;
+          font-size: 16px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        header {
+          padding: 12px 20px;
+        }
+        
+        .hero-container {
+          padding: 20px;
+        }
+        
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout-container">
+      <header>
+        <div class="logo-container">
+          <div class="logo-svg">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z"
+                fill="currentColor"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.90350 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="logo-text">HealthFirst</h2>
+        </div>
+        <div class="header-nav">
+          <div class="nav-links">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#">Doctors</a>
+            <a class="nav-link" href="#">Departments</a>
+            <a class="nav-link" href="#">Contact</a>
+          </div>
+          <div class="header-buttons">
+            <button class="btn btn-primary">
+              <span>Book Appointment</span>
+            </button>
+            <button class="btn btn-icon">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+          <div class="user-avatar"></div>
+        </div>
+      </header>
+      
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-banner">
+            <div class="hero-text">
+              <h1 class="hero-title">Comprehensive Medical Services</h1>
+              <h2 class="hero-subtitle">
+                HealthFirst offers a wide range of medical services, from routine check-ups to specialized treatments, ensuring your health and well-being are always our top priority.
+              </h2>
+            </div>
+            <button class="btn btn-primary hero-btn">
+              <span>Book Appointment</span>
+            </button>
+          </div>
+          
+          <h2 class="section-title">Our Services</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M212,152a12,12,0,1,1-12-12A12,12,0,0,1,212,152Zm-4.55,39.29A48.08,48.08,0,0,1,160,232H136a48.05,48.05,0,0,1-48-48V143.49A64,64,0,0,1,32,80V40A16,16,0,0,1,48,24H64a8,8,0,0,1,0,16H48V80a48,48,0,0,0,48.64,48c26.11-.34,47.36-22.25,47.36-48.83V40H128a8,8,0,0,1,0-16h16a16,16,0,0,1,16,16V79.17c0,32.84-24.53,60.29-56,64.31V184a32,32,0,0,0,32,32h24a32.06,32.06,0,0,0,31.22-25,40,40,0,1,1,16.23.27ZM224,152a24,24,0,1,0-24,24A24,24,0,0,0,224,152Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">General Medicine</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Cardiology</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27A8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Neurology</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M231.67,60.89a35.82,35.82,0,0,0-23.82-12.74,36,36,0,1,0-66.37,22.92.25.25,0,0,1,0,.08L71.17,141.51s0,0-.1,0A36,36,0,1,0-22.92,66.37,36,36,0,1,0,66.37,22.92.54.54,0,0,1,66.37,22.92l70.35-70.36s0,0,.1,0a36,36,0,0,0,46.74-53.63ZM219.1,97.16a20,20,0,0,1-25.67,3.8,16,16,0,0,0-19.88,2.19l-70.4,70.4A16,16,0,0,0,101,193.43a20,20,0,1,1-36.75,7.5,8,8,0,0,0-7.91-9.24,8.5,8.5,0,0,0-1.23.1A20,20,0,1,1,62.57,155a16,16,0,0,0,19.88-2.19l70.4-70.4A16,16,0,0,0,155,62.57a20,20,0,1,1,36.75-7.5,8,8,0,0,0,9.14,9.14,20,20,0,0,1,18.17,33Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Orthopedics</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M92,140a12,12,0,1,1,12-12A12,12,0,0,1,92,140Zm72-24a12,12,0,1,0,12,12A12,12,0,0,0,164,116Zm-12.27,45.23a45,45,0,0,1-47.46,0,8,8,0,0,0-8.54,13.54,61,61,0,0,0,64.54,0,8,8,0,0,0-8.54-13.54ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.11,88.11,0,0,0-84.09-87.91C120.32,56.38,120,71.88,120,72a8,8,0,0,0,16,0,8,8,0,0,1,16,0,24,24,0,0,1-48,0c0-.73.13-14.3,8.46-30.63A88,88,0,1,0,216,128Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Pediatrics</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Laboratory Services</h2>
+            </div>
+          </div>
+          
+          <h2 class="section-title">Specialized Treatments</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M237.66,66.34l-48-48a8,8,0,0,0-11.32,11.32L196.69,48,168,76.69,133.66,42.34a8,8,0,0,0-11.32,11.32L128.69,60l-84,84A15.86,15.86,0,0,0,40,155.31v49.38L18.34,226.34a8,8,0,0,0,11.32,11.32L51.31,216h49.38A15.86,15.86,0,0,0,112,211.31l84-84,6.34,6.35a8,8,0,0,0,11.32-11.32L179.31,88,208,59.31l18.34,18.35a8,8,0,0,0,11.32-11.32ZM100.69,200H56V155.31l18-18,20.34,20.35a8,8,0,0,0,11.32-11.32L85.31,126,98,113.31l20.34,20.35a8,8,0,0,0,11.32-11.32L109.31,102,140,71.31,184.69,116Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Emergency Care</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M184.57,128l27.71-27.72a40,40,0,1,0-56.56-56.56L128,71.43,100.28,43.72a40,40,0,1,0-56.56,56.56L71.43,128,43.72,155.72a40,40,0,1,0,56.56,56.56L128,184.57l27.72,27.71a40,40,0,1,0,56.56-56.56ZM167,55A24,24,0,1,1,201,89l-27.72,27.72L139.31,82.75Zm-5.09,73L128,161.94,94.06,128,128,94.06ZM55,89h0A24,24,0,1,1,89,55l27.72,27.72L82.75,116.69ZM89,201A24,24,0,1,1,55,167l27.72-27.72,33.94,33.94ZM201,201A24,24,0,0,1,167,201l-27.72-27.72,33.94-33.94L201,167A24,24,0,0,1,201,201Zm-85-73a12,12,0,1,1,12,12A12,12,0,0,1,116,128Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Rehabilitation</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M216.42,39.6a53.26,53.26,0,0,0-75.32,0L39.6,141.09a53.26,53.26,0,0,0,75.32,75.31h0L216.43,114.91A53.31,53.31,0,0,0,216.42,39.6ZM103.61,205.09h0a37.26,37.26,0,0,1-52.7-52.69L96,107.31,148.7,160ZM205.11,103.6,160,148.69,107.32,96l45.1-45.09a37.26,37.26,0,0,1,52.69,52.69ZM189.68,82.34a8,8,0,0,1,0,11.32l-24,24a8,8,0,1,1-11.31-11.32l24-24A8,8,0,0,1,189.68,82.34Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Pharmacy</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M72,136H32a8,8,0,0,1,0-16H67.72L81.34,99.56a8,8,0,0,1,13.32,0l25.34,38,9.34-14A8,8,0,0,1,136,120h24a8,8,0,0,1,0,16H140.28l-13.62,20.44a8,8,0,0,1-13.32,0L88,118.42l-9.34,14A8,8,0,0,1,72,136ZM178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,.75,0,1.5,0,2.25a8,8,0,1,0,16-.5c0-.58,0-1.17,0-1.75A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46c0,53.61-77.76,102.15-96,112.8-10.83-6.31-42.63-26-66.68-52.21a8,8,0,1,0-11.8,10.82c31.17,34,72.93,56.68,74.69,57.63a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Intensive Care</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M255.59,189.47a8,8,0,0,0-10.12-5.06l-17.42,5.81-28.9-57.8A8,8,0,0,0,192,128H112V104h56a8,8,0,0,0,0-16H112V79a32,32,0,1,0-16,0V89.81A72,72,0,0,0,112,232c33.52,0,63.69-22.71,71.75-54a8,8,0,1,0-15.5-4C162.09,198,137.91,216,112,216A56,56,0,0,1,96,106.34V136a8,8,0,0,0,8,8h83.05l29.79,59.58a8,8,0,0,0,9.69,4l24-8A8,8,0,0,0,255.59,189.47ZM88,48a16,16,0,1,1,16,16A16,16,0,0,1,88,48Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Geriatric Care</h2>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M240,112H228.64L201.25,64.06A16,16,0,0,0,187.36,56H165.42l-12-29.94A15.93,15.93,0,0,0,138.58,16H117.42a15.93,15.93,0,0,0-14.86,10.06L90.58,56H68.64a16,16,0,0,0-13.89,8.06L27.36,112H16a8,8,0,0,0,0,16h8v80a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16V192h96v16a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V128h8a8,8,0,0,0,0-16ZM117.42,32h21.16l9.6,24H107.82ZM68.64,72H187.36l22.85,40H45.79ZM64,208H40V192H64Zm128,0V192h24v16Zm24-32H40V128H216ZM56,152a8,8,0,0,1,8-8H80a8,8,0,0,1,0,16H64A8,8,0,0,1,56,152Zm112,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,152Z"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="service-name">Ambulance Services</h2>
+            </div>
+          </div>
+          
+          <div class="cta-section">
+            <div class="cta-content">
+              <h1 class="cta-title">Ready to take the next step?</h1>
+              <p class="cta-text">Book an appointment with our expert medical team today.</p>
+            </div>
+            <div class="cta-button-container">
+              <button class="btn btn-primary cta-button">
+                <span>Book Appointment</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-links">
+              <a class="footer-link" href="#">About Us</a>
+              <a class="footer-link" href="#">Contact</a>
+              <a class="footer-link" href="#">Privacy Policy</a>
+              <a class="footer-link" href="#">Terms of Service</a>
+            </div>
+            <p class="footer-copyright">@2024 HealthFirst. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

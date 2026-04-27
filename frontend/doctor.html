@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900">
+    <title>HealthHub - Our Doctors</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1785cf;
+            --text-color: #111518;
+            --light-text: #637988;
+            --border-color: #dce1e5;
+            --bg-light: #f0f3f4;
+            --white: #ffffff;
+            --font-family: "Public Sans", "Noto Sans", sans-serif;
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--white);
+            color: var(--text-color);
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Layout */
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 100vh;
+        }
+        
+        .layout-content-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 960px;
+            flex: 1;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--bg-light);
+            padding: 12px 40px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-color);
+        }
+        
+        .logo-svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .header-nav {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 0.015em;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            min-width: 84px;
+            max-width: 480px;
+            padding: 0 16px;
+        }
+        
+        .btn-icon {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            min-width: 0;
+            max-width: 480px;
+            padding: 0 10px;
+            gap: 8px;
+        }
+        
+        .user-avatar {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2pK1aa5OpXftfqdbtlorkc1GE7nJwzU78dNK5djVlVdjdJC2BjtlZIllZEJPwBQHYC4mL9sIP4O5neGrjvzy4SI96vdbi3nB9OY8r1UwbGXmA4ywVKO6bmj5tvMQNkBa61ruoZ3Id8JWVovI2oJdgERJrEm_pWCnwl5SlH4BsINyfaWoEpehGxVlVr9-3aGjvgF4FeqPnb5rLgTler85RhBah-8aO9KmRiOOBfEk400jkdCjB9DmlxRg_SbydyCV5TRxZA9w-tkb3");
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 20px 160px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        .hero-banner {
+            display: flex;
+            min-height: 480px;
+            flex-direction: column;
+            gap: 24px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), 
+                              url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2eQjVwc3GG3PnqkSGYHQXVbeXDSnSGOrzjF08MkEvy9tFbH9DA3qrV7Kn2owa6uh_-YrIxO9cuoUQgBO-5xkDYJo-jR5b6UgqXuEtEOAYdaicz18iuQ0wcpqExvXln-wTIZdPpXFw2-L7q5NlXPIhdNI0-QvVxB5J8BXqLColwY6j27zMT17E4-IIv4fhon2nK08rrRQJRaQgsKM9BH47rdq7B-MEbJN1yLBm05DeeN1nHlY1atGhc4MEtKs4Twjz6lTeHV056pCl");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 0 16px;
+        }
+        
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            color: var(--white);
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -0.033em;
+            margin-bottom: 8px;
+        }
+        
+        .hero-subtitle {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* Department Sections */
+        .department-section {
+            margin-top: 20px;
+        }
+        
+        .section-title {
+            color: var(--text-color);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            padding: 20px 16px 12px;
+        }
+        
+        .doctors-scroll-container {
+            overflow-y: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .doctors-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .doctors-container {
+            display: flex;
+            align-items: stretch;
+            padding: 16px;
+            gap: 12px;
+            flex-wrap: nowrap;
+        }
+        
+        .doctor-card {
+            display: flex;
+            height: 100%;
+            flex: 1;
+            flex-direction: column;
+            gap: 16px;
+            border-radius: 8px;
+            min-width: 160px;
+        }
+        
+        .doctor-image {
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            aspect-ratio: 1/1;
+            border-radius: 8px;
+        }
+        
+        .doctor-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .doctor-name {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        
+        .doctor-specialty {
+            color: var(--light-text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 480px) {
+            .hero-banner {
+                gap: 32px;
+                padding: 16px;
+            }
+            
+            .hero-title {
+                font-size: 45px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 20px 80px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                padding: 20px 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-banner {
+                min-height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-svg">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">HealthHub</h2>
+            </div>
+            <div class="header-nav">
+                <div class="nav-links">
+                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">Doctors</a>
+                    <a class="nav-link" href="#">Departments</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </div>
+                <div class="header-buttons">
+                    <button class="btn btn-primary">
+                        <span>Book Appointment</span>
+                    </button>
+                    <button class="btn btn-icon">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path
+                                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                                ></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+                <div class="user-avatar"></div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="layout-content-container">
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Meet Our Expert Team</h1>
+                        <h2 class="hero-subtitle">
+                            Our team of highly skilled and compassionate doctors is dedicated to providing you with the best possible care. Explore their profiles and find the right
+                            specialist for your needs.
+                        </h2>
+                    </div>
+                </div>
+                
+                <div class="department-section">
+                    <h2 class="section-title">Cardiology</h2>
+                    <div class="doctors-scroll-container">
+                        <div class="doctors-container">
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjMnudtIFkCflI69F7LZb0uHxh68P20RjamSZxH47qChyPwJjN_TIiJthOxQfMdScqp02hQqO47p2wBvhk1qOF7MziqzXVfIHBjieDDVcBdkAuHUpT-Trtbdih2xSCimbp5kGDgFl-3V9zLv1mepvvmAP29hVu7UZM7E_ra4DajWJuFs1bDpD076s25yyfy1HK-Zjjt8W9dAcu47xcSG3AtILJl0PYxmVz9OLMiexqCNe0j3Y7EHv5HyfBlbL6ERbkzCEAiceY4Eah');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Ethan Carter</p>
+                                    <p class="doctor-specialty">Specialist in Interventional Cardiology</p>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCClpRRs_z1uHjzk0ULLO7Js1gX-PivSz4ro7at9ZvOmRMDRWO7YziO7w2MMjxST_CJGnmqBWJTI1i1ClO-o2yw09uioSqZTMCvqTuYuyedN487eLbJpIzWuMy5SVGXxAtkI8ILWNPuJ4BoUKNumgh6UkJh6_485U2zCOTcBn5mm-vOw18RnOuefCOXn9s8VZmGXx2e3gbYMAgF3UgONgsCnAfMd8noyZR7lRPeYC0nVxsK-_-D10qLH1tm1YIYsTqBmr-7t2rG9OmA');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Olivia Bennett</p>
+                                    <p class="doctor-specialty">Expert in Electrophysiology</p>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCbHc9quTIWTF1Xo8Q0AWNOcYknl00b8hxeCWLqykFZJ8YvOKIn6sd12AphBXn8bNhx2_gtpLDCOpahYcfNOfgUmpBqdN29hsyEbJUONoQUgV0ez8kX64syvkXKaTr-TBGvdPfQTG5sODxPWGoY5lJVP9aC4sHoCWWsZiQW0iWBmrTE1GMQ8BJbsRvEXQ1AeEdCoCxfGkNoA71CC4MQCjexVexlfuKi5pZrAiBhN6QZPq-H39kHYp4KLXzHWoIi91q1wsOJsUWhDr4');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Noah Thompson</p>
+                                    <p class="doctor-specialty">Focus on Heart Failure Management</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-section">
+                    <h2 class="section-title">Neurology</h2>
+                    <div class="doctors-scroll-container">
+                        <div class="doctors-container">
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBl8r_22iSyOg9tjO-CQDMfnnKHjxpypAGpqLZbonoejQCYqmNrYoRiQT0MTde6iVgC-0ITMlqX3uXXldh63X_9kR0NJnS_bbjiKyJLJi8aZlOLezq2Qo6AU7SqmTIHDaIQGAfk_u0VD76y-oj2SK4xIshXbWaB9Dih8Db7kEX2NsD0SBgjatI0pKBnwSRODeqSoCjqzk7HTX8ZYPa-VPViM1tfhblOla7LL3iPLIBt30rNiPJyl_-T9cklaSPDayGWZFqPayeghF62');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Liam Harper</p>
+                                    <p class="doctor-specialty">Specialist in Stroke and Neurovascular Diseases</p>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMRr0xJjYMDltlrHLB7MsNqAbu5uT9BbvCKJ-4GeNQE6LLbNuw-32C7Mo9LCSQd02fK5RxHdyzePT8byjNzGzg-ftyx5xk_dAgA9So2ip2swkk8rxJur1cdroCTUixFJiLTZyOkNxG-9wa0yZeKPFiMXbYE9T2Zhr5t1SWyKatwMAky1VYwdvNQ7H5_Gxc9sZ2Fw4MKtjNh_eA4Czbikp6fTgA1SM91Ouw14Gohv5YC80ZzmlSIWfpvWbuMNbum5zn-WlgziUe2mjw');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Sophia Clark</p>
+                                    <p class="doctor-specialty">Expert in Epilepsy and Seizure Disorders</p>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDv8sokj9LZxDInfTt53lV078NFuksjF_h0duL9GmoNMCJCnNdtRglRTv6aeoJvVTKxo1IQzPCW9v13s8douJBX7Ih4b5ujphhUzA_HdOG7jxzVP2RyzH3nYnfS7qgKaEK1XzfOtXz7NnHKO05wSeq-OXObGwlW6-CrpUeTYwFOSsiVkeZR9djcouyrKWlwDwqXLw0LF4rcIVfZRM5o5TxEFnQDD4obswQYgOhe7FniJ1oZHJ9YljnSZT8X91QhjmDFshTS0szxvUL5');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Owen Turner</p>
+                                    <p class="doctor-specialty">Focus on Movement Disorders</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-section">
+                    <h2 class="section-title">Pediatrics</h2>
+                    <div class="doctors-scroll-container">
+                        <div class="doctors-container">
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9-MqYpXEexA8I2bkG-wCBslKixLSwySrOjWXi_imAAIkNiTQ30eganZ6nsP_C44Rg8lup5r9KsdtHg-dltd39tGeyox2ncT4QDwwUQtLSA7-Cde2cvIJeFycPsVKXgH7qGRNPHvebcXVJnkWtfb7pttujGMOHO12d7D4UdRbKfeRILCkiJNB2-1sasy80EDSVbATL_9ftB2GHHJfEaRq1lLsM1qDZWJAyeDQC8n_0yIsDpPEZ8vOku2AvilVaK8ZEN24T2HccdNS5');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Ava Mitchell</p>
+                                    <p class="doctor-specialty">Specialist in Pediatric Cardiology</p>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrEHoa7J8s-Y8ImbfXhOtazLLKdTTKZWBmRBLsLhoau1n0luLoJ5F6PmMxKmMXW17ZwiSgRS6hyhE9xyxBO65MyQ6hOpu1nBl-uKTBBjzSKMmCmqXI-PN_4RPY3nR8v9ZlIMjOOuvnwnr9-bxyxQkU6ElzwWAUz8Ve5cHV0uHeCuCvfHJqRAGQ_cqsC90hR7xx0DPwrjv-4rq96rN-ia76pX6Cig7lkfFv73ZV7Yk9b1FTD_vPV7xjD7xVPoOoBr7baIjda7W1D91D');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Caleb Foster</p>
+                                    <p class="doctor-specialty">Expert in Pediatric Neurology</p>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArIJN4UwNYslv39tikTj7NOf0GPdAxZOBLWjpI6CoM9Iwely4OdREA5D1QWfHG4p9PAl9Y0oBjxTsLhqCZOhxgjrSxPjUJoGoEmWR00UBZwXckdnqDYRvVZ18MJmNqdn_4MpBR7yv4wGMnMnLRh0w4_cgnvfD3iXrukUdCoRkMZ8OBw8HJt15DEAjoE8uXTmhmIhTCyIDBSLToyk4IjM3XZY4wP4N854Igg5oGvJznyZLyvUHI5cyCr5TI2nJOu-_FE7cBPIC93OXD');"></div>
+                                <div class="doctor-info">
+                                    <p class="doctor-name">Dr. Isabella Hayes</p>
+                                    <p class="doctor-specialty">Focus on Pediatric Gastroenterology</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
